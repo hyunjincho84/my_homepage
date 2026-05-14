@@ -13,7 +13,9 @@
         --text: #222;
         --muted: #666;
         --line: #ddd;
-        --link: #1f5f9c;
+        --accent: rgb(183, 38, 82);
+        --accent-soft: rgba(183, 38, 82, 0.18);
+        --link: rgb(183, 38, 82);
       }
 
       * {
@@ -35,6 +37,7 @@
       }
 
       a:hover {
+        color: #8f1f45;
         text-decoration: underline;
       }
 
@@ -71,8 +74,9 @@
 
       h2 {
         margin: 34px 0 12px;
-        border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid var(--accent-soft);
         padding-bottom: 6px;
+        color: var(--accent);
         font-size: 22px;
         font-weight: 600;
       }
@@ -109,7 +113,7 @@
       .profile-photo {
         width: 150px;
         height: 150px;
-        border: 1px solid var(--line);
+        border: 2px solid var(--accent-soft);
         object-fit: cover;
       }
 
@@ -186,13 +190,13 @@
       <section id="about">
         <h2>About</h2>
         <p>
-          I am a M.S. student at
+          I am an M.S. student at
           <a href="https://ai.postech.ac.kr/">GSAI</a> at
           <a href="https://www.postech.ac.kr/kor/index.do">POSTECH</a>, advised
           by Prof.
           <a href="https://complex.postech.ac.kr/members/director">Woo-Sung Jung</a>
           at <a href="https://complex.postech.ac.kr/home">CS2 Lab</a>. My
-          research interests include LLM interpretation and computational social science.
+          research interests include LLM interpretation and complex society.
         </p>
       </section>
 
@@ -212,7 +216,7 @@
           <div class="date">Feb. 2019 - Feb. 2025</div>
           <div>
             <h3>Hanyang University</h3>
-            <p>B.S. in Department of Computer Science</p>
+            <p>B.S. in Computer Software Engineering</p>
           </div>
         </div>
       </section>
@@ -253,13 +257,14 @@
       <section id="additional">
         <h2>Additional Information</h2>
         <p>
-          <strong>Language:</strong> TOEFL iBT, 5.5/6.0 (CEFR C1; 110/120 equivalent), Mar 2026.
+          <strong>Language:</strong> TOEFL iBT, CEFR C1, 110/120 equivalent,
+          Mar. 2026.
         </p>
         <p>
           <strong>Military Service:</strong> Republic of Korea Marine Corps, 2nd
           Marine Division, Ganghwa, Incheon, Korea, Aug. 2020 - Feb. 2022.
         </p>
-        <p class="note">🏋️ S160 / B130 / D180</p>
+        <p class="note">🏋️ 470 kg total · S160 / B130 / D180</p>
       </section>
 
       <footer>Last updated: May 2026.</footer>
