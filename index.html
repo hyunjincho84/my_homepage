@@ -46,7 +46,7 @@
 
       header {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr 150px;
         gap: 20px;
         align-items: start;
         border-bottom: 1px solid var(--line);
@@ -55,6 +55,7 @@
 
       nav {
         display: flex;
+        grid-column: 1 / -1;
         flex-wrap: wrap;
         gap: 14px;
         margin-top: 10px;
@@ -105,6 +106,13 @@
         margin-top: 14px;
       }
 
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border: 1px solid var(--line);
+        object-fit: cover;
+      }
+
       .entry {
         display: grid;
         grid-template-columns: 150px 1fr;
@@ -135,6 +143,15 @@
           grid-template-columns: 1fr;
         }
 
+        nav {
+          grid-column: auto;
+        }
+
+        .profile-photo {
+          width: 132px;
+          height: 132px;
+        }
+
         .entry {
           gap: 2px;
         }
@@ -155,10 +172,10 @@
             · <a href="assets/cv.pdf">CV</a>
           </p>
         </div>
+        <img class="profile-photo" src="assets/me.jpg" alt="Hyunjin Cho" />
         <nav aria-label="Page navigation">
           <a href="#about">About</a>
           <a href="#education">Education</a>
-          <a href="#research">Research</a>
           <a href="#publications">Publications</a>
           <a href="#experience">Experience</a>
         </nav>
@@ -196,14 +213,6 @@
             <p>B.S. in Computer Software Engineering</p>
           </div>
         </div>
-      </section>
-
-      <section id="research">
-        <h2>Research Interests</h2>
-        <ul>
-          <li>LLM interpretation</li>
-          <li>Complex society</li>
-        </ul>
       </section>
 
       <section id="publications">
@@ -249,6 +258,7 @@
           <strong>Military Service:</strong> Republic of Korea Marine Corps, 2nd
           Marine Division, Ganghwa, Incheon, Korea, Aug. 2020 - Feb. 2022.
         </p>
+        <p class="note">🏋️ S160 / B130 / D180</p>
       </section>
 
       <footer>Last updated: May 2026.</footer>
