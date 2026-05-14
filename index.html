@@ -1,647 +1,255 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hyunjin Cho | AI Researcher</title>
+    <title>Hyunjin Cho</title>
     <meta
       name="description"
-      content="Hyunjin Cho, M.S. student at POSTECH Graduate School of Artificial Intelligence. Research interests include deep learning, complex society, and LLM interpretation."
+      content="Hyunjin Cho is an M.S. student at the Graduate School of Artificial Intelligence, POSTECH."
     />
     <style>
       :root {
-        color-scheme: light;
-        --ink: #172027;
-        --muted: #5f6e76;
-        --line: #d9e0e3;
-        --paper: #f8f7f2;
-        --panel: #ffffff;
-        --sage: #8ea79d;
-        --steel: #41606b;
-        --coral: #c96f5b;
-        --amber: #d6a952;
-        --shadow: 0 20px 70px rgba(42, 53, 57, 0.12);
+        --text: #222;
+        --muted: #666;
+        --line: #ddd;
+        --link: #1f5f9c;
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
         margin: 0;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        background: var(--paper);
-        color: var(--ink);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        background: #fff;
       }
 
       a {
-        color: inherit;
+        color: var(--link);
         text-decoration: none;
       }
 
-      .site-shell {
-        min-height: 100vh;
+      a:hover {
+        text-decoration: underline;
       }
 
-      .nav {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 18px clamp(20px, 5vw, 64px);
-        border-bottom: 1px solid rgba(23, 32, 39, 0.09);
-        background: rgba(248, 247, 242, 0.86);
-        backdrop-filter: blur(16px);
+      .page {
+        width: min(920px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 36px 0 52px;
       }
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 760;
-        letter-spacing: 0;
-      }
-
-      .mark {
+      header {
         display: grid;
-        width: 34px;
-        height: 34px;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--ink);
-        color: var(--paper);
-        font-size: 13px;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: start;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 26px;
       }
 
-      .nav-links {
+      nav {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 8px 18px;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .nav-links a:hover {
-        color: var(--ink);
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.8fr);
-        gap: clamp(28px, 5vw, 72px);
-        align-items: stretch;
-        min-height: calc(100vh - 72px);
-        padding: clamp(34px, 7vw, 92px) clamp(20px, 5vw, 64px) 48px;
-      }
-
-      .hero-copy {
-        align-self: center;
-        max-width: 840px;
-      }
-
-      .eyebrow {
-        margin: 0 0 18px;
-        color: var(--steel);
-        font-size: 13px;
-        font-weight: 760;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+        gap: 14px;
+        margin-top: 10px;
+        font-size: 15px;
       }
 
       h1 {
-        max-width: 790px;
         margin: 0;
-        font-size: clamp(48px, 8vw, 104px);
-        line-height: 0.92;
-        letter-spacing: 0;
-      }
-
-      .lede {
-        max-width: 690px;
-        margin: 28px 0 0;
-        color: #324249;
-        font-size: clamp(18px, 2.2vw, 24px);
-        line-height: 1.55;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 34px;
-      }
-
-      .button {
-        display: inline-flex;
-        min-height: 46px;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        border: 1px solid var(--ink);
-        border-radius: 6px;
-        padding: 12px 18px;
-        font-weight: 720;
-        transition:
-          transform 180ms ease,
-          background 180ms ease,
-          color 180ms ease;
-      }
-
-      .button.primary {
-        background: var(--ink);
-        color: #fff;
-      }
-
-      .button:hover {
-        transform: translateY(-2px);
-      }
-
-      .hero-visual {
-        position: relative;
-        display: grid;
-        min-height: 560px;
-        overflow: hidden;
-        border: 1px solid rgba(23, 32, 39, 0.12);
-        border-radius: 8px;
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.32)),
-          radial-gradient(circle at 20% 20%, rgba(214, 169, 82, 0.32), transparent 30%),
-          radial-gradient(circle at 80% 14%, rgba(142, 167, 157, 0.42), transparent 34%),
-          linear-gradient(160deg, #edf1eb, #dfe8e6 48%, #f2e2d8);
-        box-shadow: var(--shadow);
-      }
-
-      .research-map {
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(23, 32, 39, 0.055) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(23, 32, 39, 0.055) 1px, transparent 1px);
-        background-size: 36px 36px;
-      }
-
-      .node {
-        position: absolute;
-        width: clamp(118px, 12vw, 168px);
-        min-height: 118px;
-        display: grid;
-        place-items: center;
-        padding: 18px;
-        border: 1px solid rgba(23, 32, 39, 0.16);
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.72);
-        box-shadow: 0 18px 40px rgba(42, 53, 57, 0.12);
-        color: #223037;
-        text-align: center;
-        font-weight: 780;
-      }
-
-      .node.deep {
-        top: 15%;
-        left: 9%;
-      }
-
-      .node.society {
-        right: 10%;
-        top: 31%;
-      }
-
-      .node.llm {
-        left: 28%;
-        bottom: 16%;
-      }
-
-      .connection {
-        position: absolute;
-        width: 58%;
-        height: 2px;
-        transform-origin: left center;
-        background: linear-gradient(90deg, rgba(65, 96, 107, 0), rgba(65, 96, 107, 0.44));
-      }
-
-      .connection.one {
-        top: 31%;
-        left: 28%;
-        transform: rotate(16deg);
-      }
-
-      .connection.two {
-        top: 52%;
-        left: 32%;
-        transform: rotate(128deg);
-      }
-
-      .visual-caption {
-        position: absolute;
-        right: 24px;
-        bottom: 24px;
-        left: 24px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(23, 32, 39, 0.14);
-        color: #33444b;
-        font-size: 15px;
-        line-height: 1.55;
-      }
-
-      main {
-        padding-bottom: 72px;
-      }
-
-      .section {
-        padding: 56px clamp(20px, 5vw, 64px);
-      }
-
-      .section-inner {
-        width: min(1120px, 100%);
-        margin: 0 auto;
-      }
-
-      .section-heading {
-        display: grid;
-        grid-template-columns: minmax(180px, 0.36fr) minmax(0, 1fr);
-        gap: 24px;
-        align-items: start;
-        margin-bottom: 26px;
+        font-size: 34px;
+        line-height: 1.2;
+        font-weight: 600;
       }
 
       h2 {
-        margin: 0;
-        font-size: clamp(26px, 3vw, 38px);
-        letter-spacing: 0;
+        margin: 34px 0 12px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 6px;
+        font-size: 22px;
+        font-weight: 600;
       }
 
-      .section-note {
-        max-width: 680px;
-        margin: 4px 0 0;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.7;
+      h3 {
+        margin: 0 0 2px;
+        font-size: 17px;
+        font-weight: 600;
       }
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .card {
-        min-height: 168px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 22px;
-        background: var(--panel);
-      }
-
-      .card h3 {
+      p {
         margin: 0 0 12px;
-        font-size: 18px;
       }
 
-      .card p,
-      .timeline p,
-      .publication p {
-        margin: 0;
+      ul,
+      ol {
+        margin: 8px 0 0 22px;
+        padding: 0;
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      .subtitle {
+        margin-top: 6px;
         color: var(--muted);
-        line-height: 1.68;
       }
 
-      .timeline {
-        display: grid;
-        gap: 12px;
+      .contact {
+        margin-top: 14px;
       }
 
-      .timeline-item,
-      .publication {
+      .entry {
         display: grid;
-        grid-template-columns: 180px minmax(0, 1fr);
-        gap: 24px;
-        border-top: 1px solid var(--line);
-        padding: 22px 0;
+        grid-template-columns: 150px 1fr;
+        gap: 18px;
+        margin: 18px 0;
       }
 
       .date {
-        color: var(--steel);
-        font-weight: 760;
+        color: var(--muted);
+        font-size: 15px;
       }
 
-      .timeline h3,
-      .publication h3 {
-        margin: 0 0 8px;
-        font-size: 20px;
-      }
-
-      .meta {
+      .note {
         color: var(--muted);
       }
 
-      .split {
-        display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
-        gap: 28px;
-        align-items: start;
-      }
-
-      .cv-preview {
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        box-shadow: var(--shadow);
-      }
-
-      .cv-preview object {
-        display: block;
-        width: 100%;
-        height: 520px;
-      }
-
-      .contact-band {
-        margin-top: 42px;
-        padding: 28px;
-        border-radius: 8px;
-        background: var(--ink);
-        color: #fff;
-      }
-
-      .contact-band p {
-        max-width: 760px;
-        margin: 8px 0 0;
-        color: rgba(255, 255, 255, 0.74);
-        line-height: 1.7;
-      }
-
-      .contact-line {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 20px;
-        margin-top: 18px;
-      }
-
-      .contact-line a {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.42);
-      }
-
       footer {
-        padding: 24px clamp(20px, 5vw, 64px) 42px;
+        margin-top: 42px;
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
         color: var(--muted);
         font-size: 14px;
       }
 
-      @media (max-width: 900px) {
-        .hero,
-        .split,
-        .section-heading,
-        .timeline-item,
-        .publication {
+      @media (max-width: 680px) {
+        header,
+        .entry {
           grid-template-columns: 1fr;
         }
 
-        .hero {
-          min-height: auto;
-        }
-
-        .hero-visual {
-          min-height: 430px;
-        }
-
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .nav {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        .nav-links {
-          justify-content: flex-start;
-        }
-      }
-
-      @media (max-width: 540px) {
-        h1 {
-          font-size: 46px;
-        }
-
-        .node {
-          width: 118px;
-          min-height: 118px;
-          font-size: 14px;
-        }
-
-        .node.society {
-          right: 4%;
-        }
-
-        .node.llm {
-          left: 18%;
-        }
-
-        .cv-preview object {
-          height: 420px;
+        .entry {
+          gap: 2px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="site-shell">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Hyunjin Cho home">
-          <span class="mark">HC</span>
-          <span>Hyunjin Cho</span>
-        </a>
-        <div class="nav-links">
-          <a href="#research">Research</a>
-          <a href="#education">Education</a>
-          <a href="#work">Work</a>
-          <a href="#cv">CV</a>
-          <a href="mailto:hyunjincho84@gmail.com">Email</a>
-        </div>
-      </nav>
-
-      <header id="top" class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">POSTECH Graduate School of AI</p>
+    <main class="page">
+      <header>
+        <div>
           <h1>Hyunjin Cho</h1>
-          <p class="lede">
-            조현진은 POSTECH 인공지능대학원 석사과정 학생입니다. 딥러닝,
-            복잡계 사회, LLM 해석을 중심으로 언어모델이 사회적 맥락과 직무
-            기술을 어떻게 표현하는지 탐구합니다.
+          <p class="subtitle">
+            M.S. Student, Graduate School of Artificial Intelligence, POSTECH
           </p>
-          <div class="actions">
-            <a class="button primary" href="mailto:hyunjincho84@gmail.com">Contact</a>
-            <a class="button" href="#cv">View CV</a>
-          </div>
-        </div>
-        <div class="hero-visual" aria-label="Research interest map">
-          <div class="research-map"></div>
-          <div class="connection one"></div>
-          <div class="connection two"></div>
-          <div class="node deep">Deep learning</div>
-          <div class="node society">Complex society</div>
-          <div class="node llm">LLM interpretation</div>
-          <p class="visual-caption">
-            Research sits at the intersection of learning systems, language, and
-            social structure.
+          <p class="contact">
+            Email:
+            <a href="mailto:hyunjincho84@gmail.com">hyunjincho84@gmail.com</a>
+            · <a href="assets/cv.pdf">CV</a>
           </p>
         </div>
+        <nav aria-label="Page navigation">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+        </nav>
       </header>
 
-      <main>
-        <section id="research" class="section">
-          <div class="section-inner">
-            <div class="section-heading">
-              <h2>Research</h2>
-              <p class="section-note">
-                관심사는 언어모델의 표현과 해석, 그리고 사회적 시스템 안에서
-                지식과 기술이 구조화되는 방식에 있습니다.
-              </p>
-            </div>
-            <div class="grid">
-              <article class="card">
-                <h3>Deep Learning</h3>
-                <p>학습 기반 모델을 활용해 언어와 지식 표현을 분석합니다.</p>
-              </article>
-              <article class="card">
-                <h3>Complex Society</h3>
-                <p>사회적 맥락, 직무 기술, 시스템 간 관계를 계산적으로 바라봅니다.</p>
-              </article>
-              <article class="card">
-                <h3>LLM Interpretation</h3>
-                <p>대규모 언어모델의 내부 표현과 예측 행동을 설명 가능한 방식으로 읽습니다.</p>
-              </article>
-            </div>
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I am an M.S. student at the Graduate School of Artificial Intelligence,
+          Pohang University of Science and Technology (POSTECH), advised by Prof.
+          Woo-Sung Jung. My research interests include deep learning, complex
+          society, and LLM interpretation.
+        </p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="entry">
+          <div class="date">Feb. 2025 - Present</div>
+          <div>
+            <h3>Pohang University of Science and Technology</h3>
+            <p>
+              M.S. Student, Graduate School of Artificial Intelligence<br />
+              Advisor: Prof. Woo-Sung Jung
+            </p>
           </div>
-        </section>
-
-        <section id="education" class="section">
-          <div class="section-inner">
-            <div class="section-heading">
-              <h2>Education</h2>
-              <p class="section-note">
-                컴퓨터소프트웨어공학 기반 위에서 인공지능 연구를 이어가고 있습니다.
-              </p>
-            </div>
-            <div class="timeline">
-              <article class="timeline-item">
-                <div class="date">Feb. 2025 - Present</div>
-                <div>
-                  <h3>Pohang University of Science and Technology</h3>
-                  <p>
-                    M.S. Student, Graduate School of Artificial Intelligence<br />
-                    Advisor: Woo-Sung Jung
-                  </p>
-                </div>
-              </article>
-              <article class="timeline-item">
-                <div class="date">Feb. 2019 - Feb. 2025</div>
-                <div>
-                  <h3>Hanyang University</h3>
-                  <p>B.S. in Computer Software Engineering</p>
-                </div>
-              </article>
-            </div>
+        </div>
+        <div class="entry">
+          <div class="date">Feb. 2019 - Feb. 2025</div>
+          <div>
+            <h3>Hanyang University</h3>
+            <p>B.S. in Computer Software Engineering</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="work" class="section">
-          <div class="section-inner split">
-            <div>
-              <div class="section-heading">
-                <h2>Work</h2>
-                <p class="section-note">연구 경험과 응용 프로젝트를 함께 쌓아왔습니다.</p>
-              </div>
-              <div class="timeline">
-                <article class="timeline-item">
-                  <div class="date">May. 2024 - Dec. 2024</div>
-                  <div>
-                    <h3>Undergraduate Research Student</h3>
-                    <p>MRLAB, Hanyang University, Korea</p>
-                  </div>
-                </article>
-                <article class="timeline-item">
-                  <div class="date">Jul. 2024 - Dec. 2024</div>
-                  <div>
-                    <h3>GPS and Image Processing App Project</h3>
-                    <p>
-                      Development of an app for manhole identification and sewer
-                      information provision using GPS location data and image processing
-                      technology, Jarada Inc, Korea.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
+      <section id="research">
+        <h2>Research Interests</h2>
+        <ul>
+          <li>Deep learning</li>
+          <li>Complex society</li>
+          <li>LLM interpretation</li>
+        </ul>
+      </section>
 
-            <aside>
-              <article class="card">
-                <h3>Publication</h3>
-                <p>
-                  Cho H., Jung, W.-S., Park J., Yoon, J. "Extracting Contextual
-                  Substitutes for Workplace Skills with Masked Language Models", Under
-                  Review.
-                </p>
-              </article>
-              <article class="card" style="margin-top: 14px">
-                <h3>Language</h3>
-                <p>TOEFL iBT: CEFR C1, 110/120 equivalent, Mar. 2026.</p>
-              </article>
-              <article class="card" style="margin-top: 14px">
-                <h3>Military Service</h3>
-                <p>
-                  Republic of Korea Marine Corps, 2nd Marine Division, Ganghwa,
-                  Incheon, Korea. Aug. 2020 - Feb. 2022.
-                </p>
-              </article>
-            </aside>
+      <section id="publications">
+        <h2>Publications</h2>
+        <ol>
+          <li>
+            <strong>Cho H.</strong>, Jung W.-S., Park J., Yoon J.,
+            "Extracting Contextual Substitutes for Workplace Skills with Masked
+            Language Models," under review.
+          </li>
+        </ol>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="entry">
+          <div class="date">May 2024 - Dec. 2024</div>
+          <div>
+            <h3>Undergraduate Research Student</h3>
+            <p>MRLAB, Hanyang University, Korea</p>
           </div>
-        </section>
-
-        <section id="cv" class="section">
-          <div class="section-inner">
-            <div class="section-heading">
-              <h2>CV</h2>
-              <p class="section-note">
-                전체 이력서는 아래에서 바로 확인할 수 있습니다. 브라우저 환경에 따라
-                PDF 미리보기가 보이지 않으면 버튼으로 파일을 열면 됩니다.
-              </p>
-            </div>
-            <div class="cv-preview">
-              <object data="assets/cv.pdf" type="application/pdf">
-                <p>
-                  PDF preview is unavailable.
-                  <a href="assets/cv.pdf">Open the CV instead.</a>
-                </p>
-              </object>
-            </div>
-            <div class="contact-band">
-              <strong>Contact</strong>
-              <p>
-                Research conversations, collaboration ideas, and academic inquiries are
-                welcome.
-              </p>
-              <div class="contact-line">
-                <a href="mailto:hyunjincho84@gmail.com">hyunjincho84@gmail.com</a>
-                <a href="assets/cv.pdf">Download CV</a>
-              </div>
-            </div>
+        </div>
+        <div class="entry">
+          <div class="date">Jul. 2024 - Dec. 2024</div>
+          <div>
+            <h3>Application Development Project</h3>
+            <p>
+              Development of an app for manhole identification and sewer
+              information provision using GPS location data and image processing
+              technology, Jarada Inc., Korea.
+            </p>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <footer>
-        <span>© 2026 Hyunjin Cho. Built from CV information.</span>
-      </footer>
-    </div>
+      <section id="additional">
+        <h2>Additional Information</h2>
+        <p>
+          <strong>Language:</strong> TOEFL iBT, CEFR C1, 110/120 equivalent,
+          Mar. 2026.
+        </p>
+        <p>
+          <strong>Military Service:</strong> Republic of Korea Marine Corps, 2nd
+          Marine Division, Ganghwa, Incheon, Korea, Aug. 2020 - Feb. 2022.
+        </p>
+      </section>
+
+      <footer>Last updated: May 2026.</footer>
+    </main>
   </body>
 </html>
